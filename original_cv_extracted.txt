@@ -1,0 +1,111 @@
+Created At: 2026-10-20T15:39:16+03:30
+Completed At: 2026-10-20T15:39:16+03:30
+Showing lines 1-107 of 107
+1: === PAGE 1 ===
+2: SAM MORADIAN 
+3: Full-Stack AI Engineer
+4: Full-Stack AI Engineer with over 4 years of experience unifying high-concurrency web 
+5: platforms with production-grade machine learning pipelines and secure cloud 
+6: infrastructure. Expert in architecting modular Identity & Access Management IAM/SSO 
+7: microservices, type-safe API gateways, and scalable Next.js/React frontends backed by 
+8: Apache CouchDB and Redis. Deeply skilled in engineering statistical ML/DL pipelines 
+9: using PyTorch and TensorFlow, integrating Explainable AI SHAP, LIME, Morris FAST, and 
+10: designing uncertainty quantification models for enterprise decision-making. Certified by 
+11: Harvard University CS50x with a strong foundation in clean architecture, deterministic 
+12: state alignment, and scalable team leadership.
+13: CONTACT
+14:  18059007207
+15:  m.hesam.moradian@gmail
+16:  Github
+17:  LinkedIn
+18:  Ardabil, Iran
+19:  
+20: EDUCATION 
+21: B.S. Computer Engineering
+22: Islamic Azad University IAU
+23: Sep 2021  May 2025 | Ardabil
+24: Grade Equivalency:
+25: • Iran: 18.5 / 20
+26: • USA GPA ≈ 3.8 / 4.0
+27: • Germany: 1.5 Sehr Gut)
+28: H+ status in German Anabin database
+29:  
+30: CERTIFICATE 
+31: CS50x: Computer Science
+32: Harvard University — Jan 2024
+33: ID: fe673d2f-6a4446b…
+34:  
+35: SKILLS 
+36: SPOKEN LANGUAGES
+37: English B2, German A2, Turkish 
+38: C1, Persian C2
+39: PROGRAMMING LANGUAGES
+40: JavaScript ES6, TypeScript, 
+41: Python, C, SQL, Solidity
+42: FRONTEND DEVELOPMENT
+43: React.js, Next.js, Tailwind CSS, 
+44: ShadCN, Radix UI, MUI, Three.js, 
+45: TanStack Query, Zod
+46: BACKEND & APIS
+47: Node.js, NestJS, Express.js, tRPC, 
+48: Apollo GraphQL, RESTful APIs, 
+49: IAM/SSO, OAuth2/JWT
+50: DATABASES & ORM
+51: Apache CouchDB, PostgreSQL, 
+52: MySQL, MongoDB, Redis, Prisma ORM
+53: AI & MACHINE LEARNING
+54: PyTorch, TensorFlow, JAX, 
+55: Transformers, LLMs LoRA, RLHF, 
+56: DPO, RAG, Vector DBs
+57: INFRASTRUCTURE & TOOLS
+58: Docker, Docker Compose, Traefik, 
+59: CI/CD, Git, pnpm Monorepos, Vitest, 
+60: Linux/SSL
+61: PROFESSIONAL EXPERIENCE 
+62: Senior Full-Stack Engineer Lead July 2025  Present
+63: The Million Project, Germany Remote
+64: ● End-to-End Platform Architecture: Engineered high-concurrency social media 
+65: MVP under tight deadlines, managing complete end-to-end development, 
+66: automated testing Vitest, and CI/CD via Docker.
+67: ● Complex API Integration: Designed secure, scalable custom APIs using tRPC, 
+68: Apollo GraphQL, and REST to integrate backend infrastructure, authentication, 
+69: and Apache CouchDB with Wix.
+70: ● High-Performance Frontend: Built modular, accessible UIs utilizing Next.js, 
+71: React, TypeScript, Tailwind CSS, and Radix UI with strict Zod validation.
+72: ● Leadership & Mentorship: Transitioned to Lead Developer; recruited, mentored, 
+73: and delegated architectural tasks to junior developers to optimize system 
+74: scalability.
+75: Machine Learning & Deep Learning Engineer July 2025  Present
+76: Journal of Sustainable Energy Systems, Ardabil, Iran
+77: ● AI Architecture & Pipeline Engineering: Deployed predictive ML/DL models 
+78: Random Forest, XGBoost, CNNs, LSTMs, Transformers) utilizing TensorFlow and 
+79: PyTorch.
+80: ● System Reliability & Explainability: Hardened AI components by implementing 
+81: advanced explainability SHAP, LIME) and uncertainty calibration techniques for 
+82: enterprise-grade decision-making.
+83: ● Production Integration: Bridged theoretical data science and software 
+84: engineering, structuring complex ML models for secure, scalable integration into 
+85: business workflows.
+86: ● Algorithmic Optimization: Enhanced model accuracy and generalization via 
+87: custom KFold Cross Validation, advanced feature engineering, and 
+88: hyperparameter optimization.
+89: Freelance Full-Stack Developer May 2023  March 2025
+90: Karlancer, Tehran, Iran
+91: ● End-to-End System Design: Architected a production-ready, highly scalable 
+92: full-stack e-commerce platform leveraging React, Next.js, Node.js, and 
+93: Express.js.
+94: ● API Design & Type Safety: Ensured strict end-to-end type safety using 
+95: TypeScript and tRPC alongside state management via React Query TanStack).
+96: ● System Refactoring & Code Quality: Optimally engineered application 
+97: performance and maintainability by implementing clean architecture and reusable 
+98: design patterns.
+99: Frontend Developer May 2021  May 2023
+100: ArmanPakhsheSahand, Ardabil, Iran
+101: ● UI/UX Implementation: Developed pixel-perfect, responsive website UIs from 
+102: scratch, engineering dynamic navigation, product filtering, and interactive 
+103: components.
+104: ● Platform Modernization: Spearheaded migration of vanilla JS codebase to React 
+105: and Tailwind CSS, applying custom hooks and component composition.
+106: ● Frontend Architecture: Delivered high-performance application by resolving 
+107: complex front-end challenges and adhering to clean code standards.
+(no newline at end of file)

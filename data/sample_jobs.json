@@ -1,0 +1,38 @@
+[
+  {
+    "id": "job_001",
+    "source": "LinkedIn",
+    "title": "Senior AI & Full-Stack Engineer (LangGraph / Python / Next.js)",
+    "company": "n8n GmbH",
+    "location": "Berlin, Germany",
+    "work_mode": "Hybrid",
+    "visa_status": "Sponsorship available",
+    "url": "https://n8n.io/careers",
+    "description": "We are looking for a Senior AI & Full-Stack Engineer to join our team in Berlin. You will work with LangGraph, Python, Next.js, FastAPI, PostgreSQL, and Docker. Visa sponsorship and EU Blue Card support provided. Experience with LangChain, LiteLLM, and CI/CD pipelines is a plus. We offer relocation package for international candidates.",
+    "posted_at": "2026-10-01"
+  },
+  {
+    "id": "job_002",
+    "source": "Glassdoor",
+    "title": "Machine Learning Engineer (PyTorch / MLOps)",
+    "company": "Celonis SE",
+    "location": "Munich, Germany",
+    "work_mode": "Hybrid",
+    "visa_status": "Sponsorship available",
+    "url": "https://celonis.com/careers",
+    "description": "Celonis is hiring a Machine Learning Engineer to build scalable MLOps pipelines using PyTorch, Scikit-learn, XGBoost, and Docker. Experience with FastAPI, GitHub Actions, and Pytest required. Relocation assistance and visa sponsorship available for qualified candidates. Join our AI research team in Munich.",
+    "posted_at": "2026-10-05"
+  },
+  {
+    "id": "job_003",
+    "source": "Indeed",
+    "title": "Senior Software Engineer",
+    "company": "LocalCorp",
+    "location": "Berlin, Germany",
+    "work_mode": "On-site",
+    "visa_status": "None",
+    "url": "https://localcorp.de/careers",
+    "description": "We are seeking a Senior Software Engineer for our Berlin office. No visa sponsorship. Native-level German proficiency is required (C2). Only EU citizens may apply.",
+    "posted_at": "2026-10-10"
+  }
+]
