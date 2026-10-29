@@ -137,10 +137,16 @@ For each eligible job:
    - GitHub: `https://github.com/m-hesam-moradian`
 3. Upload `Sam_Moradian_CV.pdf` and `Sam_Moradian_Cover_Letter.pdf`.
 4. Fill the cover letter textarea with the tailored motivation letter.
-5. **Bot Authentication & Human Handoff:**
-   - When a CAPTCHA (Turnstile, reCAPTCHA, hCaptcha), login wall, or custom required check is encountered, the agent **does not block or close the tab**.
-   - The tab remains active in the user's browser, brought to the foreground, so the user can easily complete the authentication check and submit.
-   - The agent records the status as `OPEN_IN_TAB_NEEDS_HUMAN` and seamlessly opens a new tab for the next job.
+5. **Autonomous Auto-Submit (Never Add Unnecessary Human-in-the-Loop):**
+   - When all required form fields, custom questions, and documents are populated and validated, the agent **MUST autonomously click the final Submit / Apply button** (`Submit Application`, `Bestätigen & bewerben`, `Send application`).
+   - Do NOT stop or ask the human to click submit when the form is valid and complete.
+6. **Autonomous Email Magic Link & Verification Resolution:**
+   - When an ATS (e.g. Join.com, Otta, Workday) sends an email verification or magic sign-in link, the agent has direct access to the candidate's active Gmail inbox at `https://mail.google.com/mail/u/1/#inbox`.
+   - The agent autonomously navigates to Gmail, retrieves the newest authentication link or code, and completes verification without adding human in the loop.
+   - When "Continue with Google" / "Sign in with Google" is available, select `Sam Moradian (m.hesam.moradian@gmail.com)`.
+7. **Bot Authentication & Human Handoff (Only for Active Blockers):**
+   - Only escalate to human when an interactive challenge (CAPTCHA, Turnstile, SMS 2FA) cannot be solved automatically.
+   - In that case, keep the tab open in foreground, mark as `OPEN_IN_TAB_NEEDS_HUMAN`, and continue to the next job.
 
 ### Step 5: Final Run Report
 Write a complete structured JSON report to `output/run_summary.json` and present a clean summary table to the user.

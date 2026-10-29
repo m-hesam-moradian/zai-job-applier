@@ -273,3 +273,21 @@ When generating tailored CVs and Motivation Letters using ReportLab:
 - [ ] Verify zero `:invalid` fields on form.
 - [ ] Submit application.
 - [ ] Capture proof screenshot, record Application ID, and generate confirmation artifact.
+
+---
+
+## 10. Autonomous Auto-Submit & Email Magic Link Protocol (Strict User Directive)
+
+### 10.1 Autonomous Auto-Submit (Never Add Unnecessary Human-in-the-Loop)
+- When all required form fields, custom questions, and documents (`Sam_Moradian_CV.pdf`, `Sam_Moradian_Cover_Letter.pdf`) are populated and verified, the agent **MUST autonomously click the final Submit / Apply button** (`Submit Application`, `Bestätigen & bewerben`, `Send application`).
+- Do NOT stop or ask the human to click submit when the form is valid and complete. Human intervention is reserved strictly for active CAPTCHA challenges or login credentials that cannot be bypassed.
+
+### 10.2 Autonomous Email Magic Link & Verification Resolution
+- When an application platform (e.g. Join.com, Otta, Workday) sends an email verification, magic sign-in link, or confirmation code, the agent has full direct access to the candidate's active Gmail inbox at:
+  `https://mail.google.com/mail/u/1/#inbox`
+- The agent must autonomously navigate to Gmail in an active tab, locate the newest incoming email from the ATS/employer, extract the authentication link or code, navigate to it, and complete the verification without escalating to the user.
+
+### 10.3 Single Sign-On (Google OAuth) Protocol
+- When offered the option to "Continue with Google" / "Sign in with Google", select the primary application Google account:
+  **`Sam Moradian (m.hesam.moradian@gmail.com)`**
+- This bypasses magic links and instantly completes authentication in a single click.

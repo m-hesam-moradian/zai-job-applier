@@ -41,8 +41,16 @@ _FORM_FIELD_SELECTORS: list[tuple[list[str], str]] = [
         "https://github.com/m-hesam-moradian",
     ),
     (
-        ["input[name*='location' i]", "input[id*='location' i]", "input[name*='city' i]"],
-        "Open to Relocation (Germany / EU Blue Card)",
+        ["input[name*='street' i]", "input[id*='street' i]", "input[name*='address' i]", "input[id*='address' i]"],
+        "Shahrak Kowsar, Alley 2, Plot 644",
+    ),
+    (
+        ["input[name*='postal' i]", "input[id*='postal' i]", "input[name*='zip' i]", "input[id*='zip' i]", "input[placeholder*='zip' i]"],
+        "56196",
+    ),
+    (
+        ["input[name*='location' i]", "input[id*='location' i]", "input[name*='city' i]", "input[id*='city' i]"],
+        "Ardabil, Iran",
     ),
     (
         ["input[name*='notice' i]", "input[id*='notice' i]", "input[placeholder*='notice' i]"],
@@ -189,6 +197,32 @@ class MultiTabBrowserApplier:
 
         try:
             await page.goto(job.url, wait_until="domcontentloaded", timeout=30_000)
+            # Check if we need to click an "Apply" button or navigate to application page
+            if "ashbyhq.com" in job.url and "/application" not in job.url:
+                try:
+                    await page.goto(
+                        job.url.rstrip("/") + "/application",
+                        wait_until="domcontentloaded",
+                        timeout=20_000,
+                    )
+                except Exception:
+                    pass
+            else:
+                existing_inputs = await page.query_selector_all("input:not([type='hidden'])")
+                if len(existing_inputs) < 2:
+                    for apply_btn_sel in [
+                        "a[href*='apply' i]",
+                        "button:has-text('Apply')",
+                        "a:has-text('Apply')",
+                        "button:has-text('Bewerben')",
+                        "a:has-text('Bewerben')",
+                        "[data-qa='apply-button']",
+                    ]:
+                        btn = await page.query_selector(apply_btn_sel)
+                        if btn:
+                            await btn.click()
+                            await page.wait_for_load_state("domcontentloaded", timeout=10_000)
+                            break
         except Exception as exc:
             logger.warning("Failed to navigate to %s: %s", job.url, exc)
             await page.close()
@@ -220,23 +254,44 @@ class MultiTabBrowserApplier:
             except Exception:
                 pass
 
-        # Upload CV PDF
+        # Stage files in Temp directory as per AGENT_INSTRUCTIONS
+        import shutil
+        temp_cv = Path(r"C:\Users\Sam\AppData\Local\Temp\Sam_Moradian_CV.pdf")
+        temp_ml = Path(r"C:\Users\Sam\AppData\Local\Temp\Sam_Moradian_Cover_Letter.pdf")
         if cv_pdf_path and cv_pdf_path.exists():
-            try:
-                file_inputs = await page.query_selector_all("input[type='file']")
-                if file_inputs:
-                    await file_inputs[0].set_input_files(str(cv_pdf_path))
-            except Exception as exc:
-                logger.debug("CV upload failed: %s", exc)
-
-        # Upload motivation letter PDF
+            shutil.copyfile(cv_pdf_path, temp_cv)
         if motivation_pdf_path and motivation_pdf_path.exists():
-            try:
-                file_inputs = await page.query_selector_all("input[type='file']")
-                if len(file_inputs) >= 2:
-                    await file_inputs[1].set_input_files(str(motivation_pdf_path))
-            except Exception as exc:
-                logger.debug("Motivation letter upload failed: %s", exc)
+            shutil.copyfile(motivation_pdf_path, temp_ml)
+
+        # Upload CV PDF & Motivation Letter PDF
+        try:
+            file_inputs = await page.query_selector_all("input[type='file']")
+            resume_input = None
+            cover_letter_input = None
+
+            for fi in file_inputs:
+                fid = (await fi.get_attribute("id") or "").lower()
+                fname = (await fi.get_attribute("name") or "").lower()
+                faria = (await fi.get_attribute("aria-label") or "").lower()
+                combined = f"{fid} {fname} {faria}"
+                if any(k in combined for k in ["resume", "cv", "lebenslauf"]):
+                    resume_input = fi
+                elif any(k in combined for k in ["cover", "motivation", "anschreiben", "letter"]):
+                    cover_letter_input = fi
+
+            if not resume_input and len(file_inputs) >= 1:
+                resume_input = file_inputs[0]
+            if not cover_letter_input and len(file_inputs) >= 2 and file_inputs[1] != resume_input:
+                cover_letter_input = file_inputs[1]
+
+            if resume_input and temp_cv.exists():
+                await resume_input.set_input_files(str(temp_cv))
+                logger.info("Resume uploaded for job %s", job.id)
+            if cover_letter_input and temp_ml.exists():
+                await cover_letter_input.set_input_files(str(temp_ml))
+                logger.info("Cover letter uploaded for job %s", job.id)
+        except Exception as exc:
+            logger.debug("File upload error: %s", exc)
 
         # Detect human action needed
         needs_human, reason = await detect_human_action_needed(page)
